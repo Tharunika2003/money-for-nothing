@@ -1,0 +1,29 @@
+m,n = map(int,input("enter the number of producer and consumer compaines").split())
+producer = []
+consumer = []
+max = 0
+for i in range(m):
+    price,date = map(int,input("enter selling price and date").split())
+    producer.append([price,date])
+print(producer)
+
+
+for j in range(n):
+    price,date = map(int,input("enter buying price and date").split())
+    consumer.append([price,date])
+print(consumer)
+
+for i in range(m):
+
+    for j in range(n):
+
+        if(consumer[j][0] > producer[i][0]):
+            price_diff = consumer[j][0] - producer[i][0]
+            days = consumer[j][1] - producer[i][1]
+            profit=(days) * price_diff
+            if(profit > max):
+                max = profit
+if(max >  0):
+    print("total profit = ",max)
+else:
+    print("total profit = 0")
